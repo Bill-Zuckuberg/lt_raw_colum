@@ -92,7 +92,27 @@ class _LayOutControllerState extends State<LayOutController> {
                     }),
                 const Text("Column")
               ],
-            )
+            ),
+            ListTile(
+              title: const Text("mainAxisSize:"),
+              trailing: DropdownButton<MainAxisSize>(
+                value: _mainAxisSize,
+                onChanged: (MainAxisSize? newVal) {
+                  if (newVal != null) {
+                    setState(() {
+                      _mainAxisSize = newVal;
+                    });
+                  }
+                },
+                items: MainAxisSize.values
+                    .map((MainAxisSize val) => DropdownMenuItem(
+                          child: Text(
+                              val.toString().substring('MainAxisSize.'.length)),
+                          value: val,
+                        ))
+                    .toList(),
+              ),
+            ),
           ],
         ),
       );
