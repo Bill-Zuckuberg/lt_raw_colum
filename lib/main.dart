@@ -113,6 +113,26 @@ class _LayOutControllerState extends State<LayOutController> {
                     .toList(),
               ),
             ),
+            ListTile(
+              title: const Text("MainAxisAlignment"),
+              trailing: DropdownButton<MainAxisAlignment>(
+                value: _mainAxisAlignment,
+                onChanged: (MainAxisAlignment? newVal) {
+                  if (newVal != null) {
+                    setState(() {
+                      _mainAxisAlignment = newVal;
+                    });
+                  }
+                },
+                items: MainAxisAlignment.values
+                    .map((MainAxisAlignment Val) => DropdownMenuItem(
+                          value: Val,
+                          child: Text(Val.toString()
+                              .substring('MainAxisAlignment.'.length)),
+                        ))
+                    .toList(),
+              ),
+            ),
           ],
         ),
       );
