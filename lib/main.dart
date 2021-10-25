@@ -133,6 +133,26 @@ class _LayOutControllerState extends State<LayOutController> {
                     .toList(),
               ),
             ),
+            ListTile(
+              title: const Text('CrossAxisAlignment'),
+              trailing: DropdownButton<CrossAxisAlignment>(
+                value: _crossAxisAlignment,
+                onChanged: (CrossAxisAlignment? newVal) {
+                  if (newVal != null) {
+                    setState(() {
+                      _crossAxisAlignment = newVal;
+                    });
+                  }
+                },
+                items: CrossAxisAlignment.values
+                    .map((CrossAxisAlignment Val) => DropdownMenuItem(
+                          child: Text(Val.toString()
+                              .substring('CrossAxisAlignment.'.length)),
+                          value: Val,
+                        ))
+                    .toList(),
+              ),
+            )
           ],
         ),
       );
