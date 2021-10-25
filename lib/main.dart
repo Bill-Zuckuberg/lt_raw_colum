@@ -40,6 +40,7 @@ class _LayOutControllerState extends State<LayOutController> {
     return Material(
       child: Scaffold(
         body: _builBody(),
+        bottomNavigationBar: _getBottomBar(),
       ),
     );
   }
@@ -78,7 +79,18 @@ class _LayOutControllerState extends State<LayOutController> {
                         });
                       }
                     }),
-                const Text("Row")
+                const Text("Row"),
+                Radio(
+                    value: false,
+                    groupValue: _isRow,
+                    onChanged: (bool? val) {
+                      if (val != null) {
+                        setState(() {
+                          _isRow = val;
+                        });
+                      }
+                    }),
+                const Text("Column")
               ],
             )
           ],
